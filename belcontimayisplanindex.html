@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belconti Resort Hotel — Mayıs 2026 Dijital Performans Raporu</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  :root{--navy:#0a1628;--navy2:#112040;--gold:#c9a84c;--gold2:#e8c877;--green:#27ae60;--red:#e74c3c;--light:#f8f9fc;--border:#e2e8f0;--text:#2d3748;--muted:#718096;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',sans-serif;background:var(--light);color:var(--text);line-height:1.6;}
+  @media print{body{background:white;}.no-print{display:none;}.section{box-shadow:none!important;border:1px solid #ddd;}header{-webkit-print-color-adjust:exact;print-color-adjust:exact;}.top-nav{display:none;}.accordion-body{display:block!important;}}
+  header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#0d3060 100%);color:white;padding:48px 60px 40px;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(201,168,76,.15) 0%,transparent 70%);border-radius:50%;}
+  .header-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+  .header-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .hotel-brand{display:flex;align-items:center;gap:14px;}
+  .hotel-icon{width:40px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .hotel-icon img{height:18px;width:auto;}
+  .hotel-name{font-size:13px;font-weight:500;opacity:.7;letter-spacing:2px;text-transform:uppercase;}
+  .hotel-title{font-size:22px;font-weight:700;margin-top:2px;}
+  .report-badge{background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.4);color:var(--gold2);padding:8px 20px;border-radius:30px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+  .header-title{margin-top:36px;}
+  .header-title h1{font-size:42px;font-weight:800;line-height:1.1;letter-spacing:-1px;}
+  .header-title h1 span{color:var(--gold2);}
+  .header-title p{margin-top:10px;font-size:15px;opacity:.65;}
+  .header-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1);}
+  .hstat{text-align:center;}
+  .hstat-val{font-size:28px;font-weight:800;color:var(--gold2);}
+  .hstat-label{font-size:11px;opacity:.6;text-transform:uppercase;letter-spacing:1px;margin-top:3px;}
+  .print-btn{position:fixed;bottom:30px;right:30px;background:linear-gradient(135deg,#c9a84c,#e8c877);color:#0a1628;border:none;padding:14px 26px;border-radius:50px;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 8px 30px rgba(201,168,76,.45);display:flex;align-items:center;gap:8px;z-index:100;letter-spacing:.5px;text-transform:uppercase;}
+  main{max-width:1100px;margin:0 auto;padding:40px 20px 80px;}
+  .section{background:white;border-radius:16px;box-shadow:0 2px 20px rgba(0,0,0,.06);margin-bottom:28px;overflow:hidden;}
+  .section-header{display:flex;align-items:center;gap:14px;padding:22px 28px;border-bottom:1px solid var(--border);}
+  .section-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+  .section-header h2{font-size:17px;font-weight:700;}
+  .section-header .sub{font-size:12px;color:var(--muted);margin-top:1px;}
+  .section-body{padding:24px 28px;}
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .kpi-grid-3{grid-template-columns:repeat(3,1fr);}
+  .kpi-card{border-radius:12px;padding:20px;}
+  .kpi-card.blue{background:linear-gradient(135deg,#1e40af,#2563eb);color:white;}
+  .kpi-card.teal{background:linear-gradient(135deg,#0e7490,#0891b2);color:white;}
+  .kpi-card.purple{background:linear-gradient(135deg,#6d28d9,#7c3aed);color:white;}
+  .kpi-card.green{background:linear-gradient(135deg,#059669,#10b981);color:white;}
+  .kpi-card.orange{background:linear-gradient(135deg,#d97706,#f59e0b);color:white;}
+  .kpi-card.rose{background:linear-gradient(135deg,#be185d,#ec4899);color:white;}
+  .kpi-card.navy{background:linear-gradient(135deg,var(--navy),var(--navy2));color:white;}
+  .kpi-card.gold{background:linear-gradient(135deg,#92400e,#b45309);color:white;}
+  .kpi-card.light{background:var(--light);color:var(--text);border:1px solid var(--border);}
+  .kpi-label{font-size:11px;font-weight:600;opacity:.75;text-transform:uppercase;letter-spacing:1px;}
+  .kpi-val{font-size:32px;font-weight:800;line-height:1.1;margin-top:8px;}
+  .kpi-sub{font-size:12px;opacity:.7;margin-top:4px;}
+  .kpi-badge{display:inline-flex;align-items:center;gap:3px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:10px;background:rgba(255,255,255,.2);}
+  .kpi-badge.up{background:rgba(39,174,96,.25);}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th{background:var(--light);padding:10px 14px;text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);border-bottom:1px solid var(--border);}
+  td{padding:11px 14px;border-bottom:1px solid #f0f4f8;}
+  tr:last-child td{border-bottom:none;}
+  tr:hover td{background:#fafbfd;}
+  .num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;}
+  .badge-blue{background:#dbeafe;color:#1e40af;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;}
+  .badge-orange{background:#fef3c7;color:#92400e;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;}
+  .channel-bar-wrap{display:flex;flex-direction:column;gap:12px;}
+  .channel-row{display:flex;align-items:center;gap:12px;}
+  .channel-name{min-width:160px;font-size:13px;font-weight:500;}
+  .bar-track{flex:1;background:var(--light);border-radius:6px;height:10px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:6px;}
+  .bar-val{min-width:80px;text-align:right;font-size:13px;font-weight:600;color:var(--muted);}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;}
+  .metric-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);}
+  .metric-item:last-child{border-bottom:none;}
+  .metric-label{font-size:13px;color:var(--muted);}
+  .metric-val{font-size:14px;font-weight:700;}
+  .metric-val.up{color:var(--green);}
+  .callout{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(201,168,76,.04));border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:16px 20px;margin-top:20px;}
+  .callout-title{font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px;}
+  .callout-text{font-size:13px;color:var(--muted);}
+  .divider{height:1px;background:var(--border);margin:20px 0;}
+  .tag{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;margin:3px;}
+  .tag-blue{background:#dbeafe;color:#1e40af;}
+  .tag-green{background:#d1fae5;color:#065f46;}
+  .tag-purple{background:#ede9fe;color:#5b21b6;}
+  .tag-gold{background:#fef3c7;color:#92400e;}
+  footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:24px;font-size:12px;}
+  footer strong{color:rgba(255,255,255,.8);}
+  .summary-banner{background:linear-gradient(135deg,#0a1628,#1a4070);color:white;border-radius:14px;padding:28px 32px;margin-bottom:28px;display:flex;align-items:center;gap:28px;}
+  .summary-icon{font-size:48px;}
+  .summary-text h2{font-size:20px;font-weight:800;}
+  .summary-text p{font-size:14px;opacity:.7;margin-top:4px;line-height:1.5;}
+  .icon-blue{background:#dbeafe;}.icon-orange{background:#fef3c7;}.icon-green{background:#d1fae5;}.icon-purple{background:#ede9fe;}.icon-teal{background:#cffafe;}.icon-rose{background:#fce7f3;}.icon-navy{background:#e0e7ff;}.icon-gold{background:#fef3c7;}
+  .top-nav{position:sticky;top:0;z-index:200;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08);padding:0 20px;}
+  .top-nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;}
+  .top-nav-inner::-webkit-scrollbar{display:none;}
+  .nav-item{display:flex;align-items:center;gap:6px;padding:13px 14px;color:rgba(255,255,255,.6);font-size:12px;font-weight:500;text-decoration:none;white-space:nowrap;cursor:pointer;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+  .nav-item:hover,.nav-item.active{color:var(--gold2);border-bottom-color:var(--gold2);}
+  .accordion{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:12px;}
+  .accordion-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:var(--light);cursor:pointer;user-select:none;}
+  .accordion-header:hover{background:#f0f4f8;}
+  .accordion-title{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;}
+  .accordion-arrow{font-size:12px;color:var(--muted);transition:transform .25s;}
+  .accordion.open .accordion-arrow{transform:rotate(180deg);}
+  .accordion-body{display:none;padding:20px;background:white;border-top:1px solid var(--border);}
+  .accordion.open .accordion-body{display:block;}
+  .faaliyet-section ul{padding-left:18px;}
+  .faaliyet-section li{font-size:13px;line-height:1.7;color:var(--muted);margin-bottom:6px;}
+  .faaliyet-section li strong{color:var(--text);}
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">⬇ Raporu PDF İndir</button>
+<nav class="top-nav no-print">
+  <div class="top-nav-inner">
+    <a class="nav-item" href="#sec-ga4"><span>📊</span>Web Analitik</a>
+    <a class="nav-item" href="#sec-search"><span>🔍</span>Organik Arama</a>
+    <a class="nav-item" href="#sec-gads"><span>🎯</span>Google Reklamları</a>
+    <a class="nav-item" href="#sec-meta"><span>📱</span>Meta Reklamları</a>
+    <a class="nav-item" href="#sec-social"><span>❤️</span>Sosyal Medya</a>
+    <a class="nav-item" href="#sec-rezervasyon"><span>🏨</span>Web Rezervasyon</a>
+    <a class="nav-item" href="#sec-callcenter"><span>📞</span>Call Center</a>
+    <a class="nav-item" href="#sec-faaliyet"><span>⚡</span>Faaliyet Raporu</a>
+    <a class="nav-item" href="#sec-ozet"><span>📌</span>Özet</a>
+  </div>
+</nav>
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="hotel-brand">
+        <div class="hotel-icon">
+          <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0ia2F0bWFuXzIiIGRhdGEtbmFtZT0ia2F0bWFuIDIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDIwMi41MyA2MC40NiI+CiAgPGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTJ7ZmlsbDojZmZmO3N0cm9rZS13aWR0aDowcHh9LmNscy0ye2ZpbGwtcnVsZTpldmVub2RkfTwvc3R5bGU+PC9kZWZzPgogIDxnIGlkPSJTbGlkZXIiPjxnPgogICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTM2LjU1LDQxLjk1YzIuMzMsMi4yOSw1LjE2LDMuNDMsOC41MSwzLjQzczYuMTgtMS4xNCw4LjUxLTMuNDNjMi4zMy0yLjI5LDMuNDktNS4xMiwzLjQ5LTguNTFzLTEuMTgtNi4wOS0zLjU1LTguNDJjLTIuMzUtMi4zNS01LjE3LTMuNTItOC40NS0zLjUycy02LjExLDEuMTctOC40OCwzLjUyYy0yLjM1LDIuMzMtMy41Miw1LjE0LTMuNTIsOC40MnMxLjE2LDYuMjIsMy40OSw4LjUxWk0xMzguNSwyNi44OGMxLjc0LTEuOCwzLjkzLTIuNyw2LjU2LTIuN3M0LjgzLjkxLDYuNTksMi43M2MxLjcsMS43OCwyLjU1LDMuOTYsMi41NSw2LjUzcy0uOSw0Ljc5LTIuNyw2LjU5Yy0xLjgsMS43OC0zLjk1LDIuNjctNi40NCwyLjY3cy00LjY0LS44OS02LjQ0LTIuNjdjLTEuOC0xLjgtMi43LTQtMi43LTYuNTlzLjg2LTQuNzYsMi41OC02LjU2WiIvPgogICAgPHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjE2My4zOSAyNy44MiAxODAuNTkgNDUuODQgMTgwLjU5IDIxLjk5IDE3Ny43MyAyMS45OSAxNzcuNzMgMzguOTEgMTYwLjU0IDIwLjg5IDE2MC41NCA0NC45IDE2My4zOSA0NC45IDE2My4zOSAyNy44MiIvPgogICAgPHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjE4Ny45NyA0NC45IDE5MC44MyA0NC45IDE5MC44MyAyNC42IDE5Ni4yNyAyNC42IDE5Ni4yNyAyMS45OSAxODIuNTMgMjEuOTkgMTgyLjUzIDI0LjYgMTg3Ljk3IDI0LjYgMTg3Ljk3IDQ0LjkiLz4KICAgIDxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMTk3LjkzIiB5PSIyMS45OSIgd2lkdGg9IjIuODYiIGhlaWdodD0iMjIuOTEiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTM2LjcyLDE4LjkxYy45Ni0xLjYuMzItMi4xNC0zLjk1LTEuNzEtNC4yNy40My05LjMuNjQtOS4wOC4xMS4yMS0uNTMsNi44NC0yLjU2LDYuODQtMi41NiwwLDAsMTUuMzktNS42NiwzLjMxLTYuMi00LjAyLS4xOC04LjQ4LjQyLTEyLjY2LDEuMjguMDMtNC40Ny4wNS03LjUxLjA1LTcuNjksMC0uNzUtLjIxLTIuMDMtMS43MS0yLjE0LTEuNS0uMTEtMS41LDIuODgtMS41LDIuODgsMCwwLC4xMSwyLjQ2LDAsNC4yNy0uMDIuMzYsMCwxLjYuMDMsMy4zOC02Ljk1LDEuNzEtMTIuNDIsMy44OC0xMi40MiwzLjg4LDAsMC0uMzIsMS4xOC4xMSwxLjgyLjQzLjY0LDEuNzEuNTMsMy40Mi4xMSwxLjIxLS4zLDUuMDktMS42Nyw4Ljk2LTIuNzkuMDIsMSwuMDUsMi4wOC4wOCwzLjIyLTMuNTksMS41NC02Ljc0LDMuMjYtNS43Miw0LjE3LjcuNjIsMy4wNS42OSw1LjgzLjU0LjA2LDIuMjguMTEsNC42My4xNyw2Ljg5QzEwLjEzLDMzLjc2LjQ0LDM5Ljk3LjA3LDQwLjM5Yy0uNjQuNzUsMy4yMSwxLjYsMy4yMSwxLjYsMCwwLDcuNDItNC45LDE1LjI3LTEwLjIuMDcsMy4zNS4xMiw2LjI2LjEyLDguMDYsMCw3LjA1LjIxLDExLjg2LDEuMTgsMTIuMDcuOTYuMjEsMS4wNy0xLjM5LDEuMDctMS4zOSwwLDAsLjA3LTkuNzEuMTQtMjAuNDQsNy43Ni01LjI2LDE1LjIyLTEwLjQzLDE1LjY4LTExLjE5WiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDYuNDQsMjEuMTZsLS4xMS0xLjI4czE0LjEtMS4xOCwxNC4zMi0zLjMxYy4yMS0yLjE0LTE0LjUzLTUuNDUtMTQuNTMtNS40NWwuMjEtMS43MSwxNy44NC0uNTNzLjMyLS44NS4zMi0xLjYtLjk2LTEuMjgtLjk2LTEuMjhjMCwwLTEwLjg3LjEyLTE3LjQxLjg4di0xLjk1cy0xLjYtLjExLTIuMTQsMGMtLjUzLjExLS4zNywyLjMzLS4zNywyLjMzLS45OC4xOS0xLjc0LjQxLTIuMDkuNjYtMi4zNSwxLjcxLTEuMjgsMi44OC44NiwzLjg1Ljk0LjQyLDEuMzUuNiwxLjUuNjZ2LS4wMnMuMi4xLDAsLjAydjUuNTRzLTYuNDEuNDMtNi4yLDIuNzhjLjIxLDIuMzUsNi4wOSwyLjQ2LDYuMDksMi40NmwuMTEsMS4yOHMtNS4yNC40My01LjEzLDEuODJjLjExLDEuMzksNS4wMiwxMC4zNiw2LjMsMTAuMzZzMS4wNy00LjkxLDEuMDctNC45MWwuMTEtNS4wMnMxMy42OC0xLjcxLDEzLjY4LTMuNzQtMTMuNDYtMS44Mi0xMy40Ni0xLjgyWiIvPgogICAgPHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjI4Ljg4IDQ1LjMxIDI3Ljc5IDQxLjg5IDI2LjY5IDQ1LjMxIDIzLjEgNDUuMjkgMjYuMDIgNDcuMzkgMjQuODkgNTAuOCAyNy43OSA0OC42OCAzMC42OCA1MC44IDI5LjU2IDQ3LjM5IDMyLjQ3IDQ1LjI5IDI4Ljg4IDQ1LjMxIi8+CiAgICA8cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iNDIuMDMgNDUuMzEgNDAuOTMgNDEuODkgMzkuODQgNDUuMzEgMzYuMjUgNDUuMjkgMzkuMTYgNDcuMzkgMzguMDQgNTAuOCA0MC45MyA0OC42OCA0My44MyA1MC44IDQyLjcgNDcuMzkgNDUuNjIgNDUuMjkgNDIuMDMgNDUuMzEiLz4KICAgIDxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSI1NC4wMSA0NS4zMSA1Mi45MiA0MS44OSA1MS44MiA0NS4zMSA0OC4yMyA0NS4yOSA1MS4xNSA0Ny4zOSA1MC4wMiA1MC44IDUyLjkyIDQ4LjY4IDU1LjgxIDUwLjggNTQuNjkgNDcuMzkgNTcuNiA0NS4yOSA1NC4wMSA0NS4zMSIvPgogICAgPHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjY1LjM4IDQ1LjMxIDY0LjI5IDQxLjg5IDYzLjE5IDQ1LjMxIDU5LjYgNDUuMjkgNjIuNTIgNDcuMzkgNjEuMzkgNTAuOCA2NC4yOSA0OC42OCA2Ny4xOCA1MC44IDY2LjA2IDQ3LjM5IDY4Ljk3IDQ1LjI5IDY1LjM4IDQ1LjMxIi8+CiAgICA8cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iNzcuNDYgNDUuMzEgNzYuMzcgNDEuODkgNzUuMjcgNDUuMzEgNzEuNjggNDUuMjkgNzQuNiA0Ny4zOSA3My40NyA1MC44IDc2LjM3IDQ4LjY4IDc5LjI2IDUwLjggNzguMTQgNDcuMzkgODEuMDUgNDUuMjkgNzcuNDYgNDUuMzEiLz4KICA8L2c+PC9nPgo8L3N2Zz4=" alt="Belconti">
+        </div>
+        <div>
+          <div class="hotel-name">Belconti Resort Hotel · Belek, Antalya</div>
+          <div class="hotel-title">Dijital Performans Raporu</div>
+        </div>
+      </div>
+      <div class="report-badge">📅 Mayıs 2026</div>
+    </div>
+    <div class="header-title">
+      <h1>Mayıs <span>2026</span><br>Aylık Rapor</h1>
+      <p>1 Mayıs — 30 Mayıs 2026 · Google Analytics · Google Ads · Meta · Call Center · Web Rezervasyon</p>
+    </div>
+    <div class="header-stats">
+      <div class="hstat"><div class="hstat-val">233K</div><div class="hstat-label">Aktif Kullanıcı</div><div style="font-size:9px;opacity:.45;margin-top:2px;letter-spacing:.5px;">KAYNAK: GOOGLE ANALYTICS 4</div></div>
+      <div class="hstat"><div class="hstat-val">8,02M ₺</div><div class="hstat-label">Call Center Ciro</div></div>
+      <div class="hstat"><div class="hstat-val">2M €</div><div class="hstat-label">Rezervasyon Geliri</div></div>
+      <div class="hstat"><div class="hstat-val">203</div><div class="hstat-label">Direkt Satış</div><div style="font-size:9px;opacity:.45;margin-top:2px;letter-spacing:.5px;">KAYNAK: CALL CENTER RAPORU</div></div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="summary-banner">
+    <div class="summary-icon">🚀</div>
+    <div class="summary-text">
+      <h2>Güçlü Bir Mayıs Performansı</h2>
+      <p>Web trafiği 233K aktif kullanıcıya ulaştı. Call center 601 çağrıdan ₺8,02M ciro üretirken web rezervasyon kanalı €1,99M oda geliri sağladı. Instagram erişimi %177 büyüme kaydetti.</p>
+    </div>
+  </div>
+  <div class="section" id="sec-ga4">
+    <div class="section-header"><div class="section-icon icon-blue">📊</div><div><h2>Web Analitik — Google Analytics 4</h2><div class="sub">1 Mayıs – 30 Mayıs 2026</div></div></div>
+    <div class="section-body">
+      <div class="kpi-grid">
+        <div class="kpi-card blue"><div class="kpi-label">Aktif Kullanıcı</div><div class="kpi-val">233.452</div></div>
+        <div class="kpi-card teal"><div class="kpi-label">Yeni Kullanıcı</div><div class="kpi-val">225.000</div></div>
+        <div class="kpi-card purple"><div class="kpi-label">Sayfa Görüntüleme</div><div class="kpi-val">553.239</div></div>
+        <div class="kpi-card gold"><div class="kpi-label">Ort. Etkileşim</div><div class="kpi-val">16 sn</div></div>
+      </div>
+      <div class="divider"></div>
+      <div class="two-col">
+        <div>
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:14px;">Trafik Kaynakları</h3>
+          <div class="channel-bar-wrap">
+            <div class="channel-row"><div class="channel-name">Cross-network</div><div class="bar-track"><div class="bar-fill" style="width:88%;background:#2563eb;"></div></div><div class="bar-val">355.000</div></div>
+            <div class="channel-row"><div class="channel-name">Direct</div><div class="bar-track"><div class="bar-fill" style="width:17%;background:#0891b2;"></div></div><div class="bar-val">7.000</div></div>
+            <div class="channel-row"><div class="channel-name">Organic Search</div><div class="bar-track"><div class="bar-fill" style="width:16%;background:#059669;"></div></div><div class="bar-val">6.400</div></div>
+            <div class="channel-row"><div class="channel-name">Paid Search</div><div class="bar-track"><div class="bar-fill" style="width:14%;background:#d97706;"></div></div><div class="bar-val">5.800</div></div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:14px;">Top Ülkeler</h3>
+          <div class="channel-bar-wrap">
+            <div class="channel-row"><div class="channel-name">🇹🇷 Türkiye</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#2563eb;"></div></div><div class="bar-val">182.000</div></div>
+            <div class="channel-row"><div class="channel-name">🇩🇪 Almanya</div><div class="bar-track"><div class="bar-fill" style="width:16%;background:#059669;"></div></div><div class="bar-val">30.000</div></div>
+            <div class="channel-row"><div class="channel-name">🇬🇧 İngiltere</div><div class="bar-track"><div class="bar-fill" style="width:5%;background:#d97706;"></div></div><div class="bar-val">10.000</div></div>
+          </div>
+          <div style="margin-top:16px;padding:14px;background:var(--light);border-radius:10px;">
+            <div style="font-size:12px;font-weight:600;color:var(--muted);margin-bottom:8px;">DEMOGRAFİ</div>
+            <div style="display:flex;gap:16px;"><div style="text-align:center;"><div style="font-size:22px;font-weight:800;color:#2563eb;">%72.9</div><div style="font-size:11px;color:var(--muted);">Kadın</div></div><div style="text-align:center;"><div style="font-size:22px;font-weight:800;color:#0891b2;">%27.1</div><div style="font-size:11px;color:var(--muted);">Erkek</div></div><div style="flex:1;text-align:center;"><div style="font-size:22px;font-weight:800;color:#059669;">35-44</div><div style="font-size:11px;color:var(--muted);">Dominant yaş</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <table><thead><tr><th>#</th><th>Sayfa</th><th class="num">Görüntüleme</th><th class="num">Pay</th></tr></thead><tbody>
+        <tr><td>1</td><td>/TR (Türkçe Ana Sayfa)</td><td class="num">411.181</td><td class="num">%74,3</td></tr>
+        <tr><td>2</td><td>/DE (Almanca Ana Sayfa)</td><td class="num">52.831</td><td class="num">%9,6</td></tr>
+        <tr><td>3</td><td>/EN (İngilizce Ana Sayfa)</td><td class="num">37.268</td><td class="num">%6,7</td></tr>
+        <tr><td>4</td><td>/TR/2026-kurban-bayrami-ne-zaman</td><td class="num">16.566</td><td class="num">%3,0</td></tr>
+        <tr><td>5</td><td>/ (Root — Ana Giriş Sayfası)</td><td class="num">10.192</td><td class="num">%1,8</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+  <div class="section" id="sec-search">
+    <div class="section-header"><div class="section-icon icon-green">🔍</div><div><h2>Organik Arama — Google Search Console</h2><div class="sub">1 Mayıs – 30 Mayıs 2026</div></div></div>
+    <div class="section-body">
+      <div class="kpi-grid kpi-grid-3">
+        <div class="kpi-card green"><div class="kpi-label">Toplam Tıklama</div><div class="kpi-val">3.078</div></div>
+        <div class="kpi-card teal"><div class="kpi-label">Toplam Gösterim</div><div class="kpi-val">381.360</div></div>
+        <div class="kpi-card navy"><div class="kpi-label">Ort. CTR</div><div class="kpi-val">%0.81</div><div class="kpi-sub">Konum: 7.37</div></div>
+      </div>
+      <div class="callout"><div class="callout-title">📍 Ortalama Sıralama: 7.37</div><div class="callout-text">"belconti resort hotel" sorgusu 14.655 gösterim ile %7.44 CTR sağladı.</div></div>
+    </div>
+  </div>
+  <div class="section" id="sec-gads">
+    <div class="section-header"><div class="section-icon icon-blue">🎯</div><div><h2>Google Reklamları Performansı</h2><div class="sub">1 Mayıs – 30 Mayıs 2026 · Tüm hesap verisi</div></div></div>
+    <div class="section-body">
+      <div class="kpi-grid">
+        <div class="kpi-card blue"><div class="kpi-label">Toplam Gösterim</div><div class="kpi-val">5,24M</div></div>
+        <div class="kpi-card teal"><div class="kpi-label">Toplam Tıklama</div><div class="kpi-val">475.935</div></div>
+        <div class="kpi-card green"><div class="kpi-label">Toplam Harcama</div><div class="kpi-val">₺524.315</div></div>
+        <div class="kpi-card orange"><div class="kpi-label">Toplam Dönüşüm</div><div class="kpi-val">55.828</div></div>
+      </div>
+      <div class="divider"></div>
+      <table><thead><tr><th>Kampanya</th><th>Tür</th><th class="num">Gösterim</th><th class="num">Tıklama</th><th class="num">Harcama (₺)</th><th class="num">Dönüşüm</th><th class="num">TBM</th></tr></thead><tbody>
+        <tr><td>PMAX — Türkiye</td><td><span class="badge-blue">Maks. Perf.</span></td><td class="num">2.316.651</td><td class="num">288.068</td><td class="num">144.721</td><td class="num">34.226</td><td class="num">₺0.50</td></tr>
+        <tr><td>PMAX — İngiltere</td><td><span class="badge-blue">Maks. Perf.</span></td><td class="num">735.709</td><td class="num">21.933</td><td class="num">58.906</td><td class="num">2.392</td><td class="num">₺2.69</td></tr>
+        <tr><td>PMAX — Isıtmalı TR</td><td><span class="badge-blue">Maks. Perf.</span></td><td class="num">648.051</td><td class="num">92.672</td><td class="num">48.119</td><td class="num">11.247</td><td class="num">₺0.52</td></tr>
+        <tr><td>PMAX — DE Gurbetçi</td><td><span class="badge-blue">Maks. Perf.</span></td><td class="num">606.598</td><td class="num">28.072</td><td class="num">58.716</td><td class="num">2.124</td><td class="num">₺2.09</td></tr>
+        <tr><td>Jenerik — Türkiye</td><td><span class="badge-orange">Arama</span></td><td class="num">79.615</td><td class="num">2.945</td><td class="num">20.666</td><td class="num">1.002</td><td class="num">₺7.02</td></tr>
+        <tr><td>Jenerik — Almanya</td><td><span class="badge-orange">Arama</span></td><td class="num">26.675</td><td class="num">793</td><td class="num">29.721</td><td class="num">179</td><td class="num">₺37.48</td></tr>
+        <tr style="font-weight:700;background:#f0f9ff;"><td><strong>TOPLAM</strong></td><td></td><td class="num"><strong>5.248.471</strong></td><td class="num"><strong>475.935</strong></td><td class="num"><strong>₺524.315</strong></td><td class="num"><strong>55.828</strong></td><td class="num"><strong>₺1.10</strong></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+  <div class="section" id="sec-meta">
+    <div class="section-header"><div class="section-icon icon-purple">📱</div><div><h2>Meta Reklamları</h2><div class="sub">1 Mayıs – 30 Mayıs 2026 · Belconti10</div></div></div>
+    <div class="section-body">
+      <div class="kpi-grid kpi-grid-3">
+        <div class="kpi-card purple"><div class="kpi-label">Link Tıklamaları</div><div class="kpi-val">4.716</div></div>
+        <div class="kpi-card rose"><div class="kpi-label">Gösterim</div><div class="kpi-val">50.490</div></div>
+        <div class="kpi-card navy"><div class="kpi-label">Harcama</div><div class="kpi-val">₺3.026</div></div>
+      </div>
+      <div style="margin-top:16px;padding:16px;background:var(--light);border-radius:10px;display:flex;gap:24px;align-items:center;">
+        <div style="text-align:center;flex:1;"><div style="font-size:11px;color:var(--muted);text-transform:uppercase;">Erişim</div><div style="font-size:24px;font-weight:800;color:#7c3aed;">26.087</div></div>
+        <div style="text-align:center;flex:1;"><div style="font-size:11px;color:var(--muted);text-transform:uppercase;">TBM</div><div style="font-size:24px;font-weight:800;color:#7c3aed;">₺0.64</div></div>
+        <div style="text-align:center;flex:1;"><div style="font-size:11px;color:var(--muted);text-transform:uppercase;">Kampanya</div><div style="font-size:16px;font-weight:700;color:#7c3aed;">Belconti10</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="section" id="sec-social">
+    <div class="section-header"><div class="section-icon icon-rose">❤️</div><div><h2>Sosyal Medya Organik</h2><div class="sub">1 Mayıs – 30 Mayıs 2026</div></div></div>
+    <div class="section-body">
+      <div class="two-col">
+        <div style="background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);border-radius:14px;padding:24px;color:white;">
+          <div style="font-size:20px;font-weight:800;margin-bottom:16px;">📸 Instagram</div>
+          <div class="metric-item" style="border-color:rgba(255,255,255,.2);"><span style="opacity:.8;">Görüntüleme</span><span style="font-weight:800;">159.564 ↑%5.7</span></div>
+          <div class="metric-item" style="border-color:rgba(255,255,255,.2);"><span style="opacity:.8;">Erişim</span><span style="font-weight:800;">29.300 ↑%177.6</span></div>
+          <div class="metric-item" style="border-color:rgba(255,255,255,.2);"><span style="opacity:.8;">Etkileşim</span><span style="font-weight:800;">1.200 ↑%28.8</span></div>
+          <div class="metric-item" style="border-color:rgba(255,255,255,.2);"><span style="opacity:.8;">Yeni Takipçi</span><span style="font-weight:800;">267</span></div>
+        </div>
+        <div style="background:linear-gradient(135deg,#1877f2,#0d4fc4);border-radius:14px;padding:24px;color:white;">
+          <div style="font-size:20px;font-weight:800;margin-bottom:16px;">👍 Facebook</div>
+          <div class="metric-item" style="border-color:rgba(255,255,255,.2);"><span style="opacity:.8;">Görüntüleme</span><span style="font-weight:800;">40.636 ↑%59.1</span></div>
+          <div class="metric-item" style="border-color:rgba(255,255,255,.2);"><span style="opacity:.8;">Görüntüleyenler</span><span style="font-weight:800;">13.475 ↑%120.8</span></div>
+          <div class="metric-item" style="border-color:rgba(255,255,255,.2);"><span style="opacity:.8;">Etkileşim</span><span style="font-weight:800;">656 ↑%68.6</span></div>
+          <div class="metric-item" style="border-color:rgba(255,255,255,.2);"><span style="opacity:.8;">Sayfa Ziyareti</span><span style="font-weight:800;">3.500</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section" id="sec-rezervasyon">
+    <div class="section-header"><div class="section-icon icon-gold">🏨</div><div><h2>Web Rezervasyon Performansı</h2><div class="sub">SednaBI · Mayıs 2026</div></div></div>
+    <div class="section-body">
+      <div class="kpi-grid">
+        <div class="kpi-card gold"><div class="kpi-label">Oda Geliri</div><div class="kpi-val">€1.999.905</div></div>
+        <div class="kpi-card orange"><div class="kpi-label">Oda Geceleme</div><div class="kpi-val">9.201</div></div>
+        <div class="kpi-card teal"><div class="kpi-label">Kişi Ort.</div><div class="kpi-val">€87.02</div></div>
+        <div class="kpi-card blue"><div class="kpi-label">Oda Ort.</div><div class="kpi-val">€217.36</div></div>
+      </div>
+      <div class="divider"></div>
+      <div class="channel-bar-wrap">
+        <div class="channel-row"><div class="channel-name">Pegas Touristik</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#2563eb;"></div></div><div class="bar-val">1.363 · €78/kişi</div></div>
+        <div class="channel-row"><div class="channel-name">Anex Tour</div><div class="bar-track"><div class="bar-fill" style="width:69%;background:#059669;"></div></div><div class="bar-val">940 · €86/kişi</div></div>
+        <div class="channel-row"><div class="channel-name">FIT Holidays</div><div class="bar-track"><div class="bar-fill" style="width:64%;background:#7c3aed;"></div></div><div class="bar-val">876 · €91/kişi</div></div>
+        <div class="channel-row"><div class="channel-name">Booking.com</div><div class="bar-track"><div class="bar-fill" style="width:51%;background:#be185d;"></div></div><div class="bar-val">694 · €113/kişi ⭐</div></div>
+        <div class="channel-row"><div class="channel-name">Call Center</div><div class="bar-track"><div class="bar-fill" style="width:49%;background:#0891b2;"></div></div><div class="bar-val">668 · €101/kişi</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="section" id="sec-callcenter">
+    <div class="section-header"><div class="section-icon icon-teal">📞</div><div><h2>Call Center Performansı</h2><div class="sub">Mayıs 2026</div></div></div>
+    <div class="section-body">
+      <div class="kpi-grid kpi-grid-3">
+        <div class="kpi-card teal"><div class="kpi-label">Toplam Çağrı</div><div class="kpi-val">601</div></div>
+        <div class="kpi-card green"><div class="kpi-label">Gerçekleşen Satış</div><div class="kpi-val">203</div><div class="kpi-badge up">%33.8 kapanış</div></div>
+        <div class="kpi-card gold"><div class="kpi-label">Toplam Ciro</div><div class="kpi-val">₺8.028.716</div><div class="kpi-sub">+€57.703</div></div>
+      </div>
+      <div class="divider"></div>
+      <table><thead><tr><th>Hafta</th><th class="num">Çağrı</th><th class="num">Satış</th><th class="num">Ciro (₺)</th><th class="num">Kapanış %</th></tr></thead><tbody>
+        <tr><td>1–7 Mayıs</td><td class="num">103</td><td class="num">41</td><td class="num">₺1.673.280</td><td class="num">%39.8</td></tr>
+        <tr><td>8–14 Mayıs</td><td class="num">120</td><td class="num">53</td><td class="num">₺1.599.993</td><td class="num">%44.2</td></tr>
+        <tr><td>15–21 Mayıs</td><td class="num">127</td><td class="num">41</td><td class="num">₺2.110.612</td><td class="num">%32.3</td></tr>
+        <tr><td>22–31 Mayıs</td><td class="num">151</td><td class="num">45</td><td class="num">₺1.508.793</td><td class="num">%29.8</td></tr>
+        <tr style="font-weight:700;background:#f0fdf4;"><td><strong>TOPLAM</strong></td><td class="num"><strong>601</strong></td><td class="num"><strong>203</strong></td><td class="num"><strong>₺8.028.716</strong></td><td class="num"><strong>%33.8</strong></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+  <div class="section" id="sec-faaliyet">
+    <div class="section-header"><div class="section-icon icon-navy">⚡</div><div><h2>Aylık Faaliyet Raporu</h2><div class="sub">Mayıs 2026 · Tıklayarak açın</div></div></div>
+    <div class="section-body">
+      <div class="accordion open" onclick="toggleAccordion(this)">
+        <div class="accordion-header"><div class="accordion-title"><span>🎯</span> Dijital Pazarlama & PR</div><span class="accordion-arrow">▼</span></div>
+        <div class="accordion-body faaliyet-section"><ul>
+          <li><strong>Belconti10 kampanyası</strong> Google ve Meta'da yayına alındı. CTR ortalama <strong>%22</strong> arttı.</li>
+          <li><strong>Balkan ve Ortadoğu</strong> kreatifleri hazırlandı, A/B testleri tamamlandı.</li>
+          <li>Genel Müdür röportajı, Aşçıbaşı ve F&B Müdürü PR içerikleri üretildi.</li>
+          <li><strong>Rus vlogger</strong> iş birliği anlaşması sağlandı.</li>
+        </ul></div>
+      </div>
+      <div class="accordion" onclick="toggleAccordion(this)">
+        <div class="accordion-header"><div class="accordion-title"><span>📧</span> PPG Newsletter</div><span class="accordion-arrow">▼</span></div>
+        <div class="accordion-body faaliyet-section"><ul>
+          <li>PPG bülten altyapısı KVKK uyumlu olarak entegre edildi.</li>
+          <li><strong>Her Pazartesi</strong> otomatik bülten gönderimi planlandı.</li>
+        </ul></div>
+      </div>
+      <div class="accordion" onclick="toggleAccordion(this)">
+        <div class="accordion-header"><div class="accordion-title"><span>🌐</span> OTA & COP31</div><span class="accordion-arrow">▼</span></div>
+        <div class="accordion-body faaliyet-section"><ul>
+          <li>OTA kanal denetimleri ve harici platform araştırmaları yapıldı.</li>
+          <li>COP31 kapsamında çok yönlü medya PR çalışmaları yürütüldü.</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="section" id="sec-ozet">
+    <div class="section-header"><div class="section-icon icon-gold">📌</div><div><h2>Özet & Haziran Önerileri</h2><div class="sub">Mayıs 2026</div></div></div>
+    <div class="section-body">
+      <div class="three-col">
+        <div style="padding:20px;background:#f0fdf4;border-radius:12px;border:1px solid #a7f3d0;"><div style="font-size:18px;margin-bottom:8px;">✅</div><h3 style="font-size:13px;font-weight:700;color:#065f46;margin-bottom:10px;">Güçlü Yönler</h3><div style="font-size:12px;color:#047857;line-height:1.7;">• Call center %33.8 kapanış<br>• Instagram erişimi %177<br>• Facebook görüntüleme %59<br>• PMAX TR 34K dönüşüm<br>• Kreatif CTR %22 artış</div></div>
+        <div style="padding:20px;background:#fef9c3;border-radius:12px;border:1px solid #fde68a;"><div style="font-size:18px;margin-bottom:8px;">⚠️</div><h3 style="font-size:13px;font-weight:700;color:#92400e;margin-bottom:10px;">Gelişim Alanları</h3><div style="font-size:12px;color:#b45309;line-height:1.7;">• Organik CTR %0.81<br>• DE/LV bütçe sınırlı<br>• 160 iptal optimize edilmeli<br>• Etkileşim süresi 16 sn</div></div>
+        <div style="padding:20px;background:#eff6ff;border-radius:12px;border:1px solid #bfdbfe;"><div style="font-size:18px;margin-bottom:8px;">🚀</div><h3 style="font-size:13px;font-weight:700;color:#1e40af;margin-bottom:10px;">Haziran Aksiyonları</h3><div style="font-size:12px;color:#1d4ed8;line-height:1.7;">• DE & LV bütçesi artır<br>• PPG newsletter ilk gönderim<br>• Yaz sezonu kreatifleri<br>• Ru vlogger içeriği yayınla<br>• Kurban Bayramı kampanyası</div></div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+function toggleAccordion(el){el.classList.toggle('open');}
+const sections=document.querySelectorAll('[id^="sec-"]');
+const navItems=document.querySelectorAll('.nav-item');
+window.addEventListener('scroll',()=>{let c='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)c=s.id;});navItems.forEach(n=>{n.classList.toggle('active',n.getAttribute('href')==='#'+c);});});
+navItems.forEach(n=>{n.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(n.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});});
+</script>
+<footer>
+  <strong>Belconti Resort Hotel</strong> &nbsp;·&nbsp; Mayıs 2026 Dijital Performans Raporu &nbsp;·&nbsp; Haziran 2026
+  <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;gap:10px;">
+    <span style="font-size:11px;opacity:.5;text-transform:uppercase;letter-spacing:1px;">Hazırlayan</span>
+    <div style="display:inline-flex;align-items:center;font-size:22px;font-weight:900;letter-spacing:-.5px;"><span style="color:#fff;">PMA</span><span style="background:linear-gradient(90deg,#7c3aed,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"> PARTNER</span></div>
+  </div>
+</footer>
+</body>
+</html>
